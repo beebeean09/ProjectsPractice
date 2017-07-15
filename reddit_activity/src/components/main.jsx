@@ -18,7 +18,7 @@ class Main extends React.Component {
     .then(json => json.data.children)
     .then(postList => {
       let posts = postList.map(post =>
-        [post.data.title, post.data.score, post.data.link]);
+        [post.data.title, post.data.score, post.data.url]);
         this.setState({posts: posts});
     })
     .catch(err => this.setState({errors: err}));

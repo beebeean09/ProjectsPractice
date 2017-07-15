@@ -11,8 +11,8 @@ class CommentsListItem extends React.Component {
         <ul>{comment[0]}</ul>
         <h3>Score:</h3>
         <ul>{comment[1]}</ul>
-        <h3>Url:</h3>
-        <ul>{comment[2]}</ul>
+        <h3>Link:</h3>
+        <ul><a href={comment[2]}>{comment[2]}</a></ul>
       </div>
     );
   }
