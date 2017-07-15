@@ -1,0 +1,29 @@
+.comments-list {
+  border: 1px solid black;
+  font-size: 15px;
+  margin: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.comments-list > ul {
+  padding: 1em;
+}
+
+.comments-list-item, ul > a {
+  /*display: flex;*/
+  width: 250px;
+  height: auto;
+  margin: 15px;
+  padding: 5px;
+}
+.comments-list-item {
+  border: 1px solid blue;
+}
+
+.comments-list-item > ul, .comments-list-item > h3 {
+  margin: 10px;
+}

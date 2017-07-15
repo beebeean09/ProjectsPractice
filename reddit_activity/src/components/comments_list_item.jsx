@@ -1,4 +1,5 @@
 import React from 'react';
+import '../comments.css';
 
 class CommentsListItem extends React.Component {
 
@@ -6,13 +7,13 @@ class CommentsListItem extends React.Component {
     const comment = this.props.comment;
 
     return(
-      <div className="comment-item">
+      <div className="comments-list-item">
         <h3>Body:</h3>
         <ul>{comment[0]}</ul>
         <h3>Score:</h3>
         <ul>{comment[1]}</ul>
         <h3>Link:</h3>
-        <ul><a href={comment[2]}>{comment[2]}</a></ul>
+        <ul><a href={comment[2]}>Click here for link!</a></ul>
       </div>
     );
   }

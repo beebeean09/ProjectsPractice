@@ -1,7 +1,7 @@
 import React from 'react';
-import RedditForm from './form.jsx';
 import CommentsList from './comments_list.jsx';
 import PostsList from './posts_list.jsx';
+import '../main.css';
 
 class Main extends React.Component {
   constructor(props) {
@@ -9,6 +9,7 @@ class Main extends React.Component {
 
     this.state = { username: "" , posts: "", comments: "", errors: ""};
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.renderErrors = this.renderErrors.bind(this);
   }
 
   fetchPosts(username) {
@@ -21,7 +22,7 @@ class Main extends React.Component {
         [post.data.title, post.data.score, post.data.url]);
         this.setState({posts: posts});
     })
-    .catch(err => this.setState({errors: err}));
+    .catch(err => this.setState({errors: [err, "Username does not exist."]}));
   }
 
   fetchComments(username) {
@@ -35,7 +36,7 @@ class Main extends React.Component {
       this.setState({comments: comments});
     }
     )
-    .catch(err => this.setState({errors: err}));
+    .catch(err => this.setState({errors: [err, "Username does not exist."]}));
   }
 
 
@@ -55,8 +56,8 @@ class Main extends React.Component {
   renderErrors() {
     let errors;
     if (this.state.errors) {
-      errors = this.state.errors.map(err =>
-        <ul>Error Message: {err}</ul>
+      errors = this.state.errors.map((err, idx) =>
+        <ul className="errors" key={idx}>Error Message: {err.toString()}</ul>
       );
     }
     return errors;
@@ -70,14 +71,15 @@ class Main extends React.Component {
       <div className="main-container">
         <div className="form">
           <form onSubmit={this.handleSubmit}>
-            <label>Reddit Username:
+            <label>Input Reddit Username:
               <input
+                className="form-input"
                 value={this.state.username}
                 onChange={this.update('username')}
                 placeholder='Username'>
               </input>
             </label>
-            <input type="submit" value="Submit"/>
+            <input className="button" type="submit" value="Submit"/>
           </form>
           {this.renderErrors()}
         </div>

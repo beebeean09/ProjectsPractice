@@ -1,5 +1,6 @@
 import React from 'react';
 import CommentsListItem from './comments_list_item.jsx';
+import '../comments.css';
 
 class CommentsList extends React.Component {
 
@@ -9,6 +10,8 @@ class CommentsList extends React.Component {
       comments = this.props.comments.map((comment, idx) =>
         <CommentsListItem key={idx} comment={comment} />
       );
+    } else {
+      comments = <ul>Please input Username to see your comments.</ul>;
     }
 
     return(
