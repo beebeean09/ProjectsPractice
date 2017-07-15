@@ -6,9 +6,18 @@ class PostsList extends React.Component {
 
   render() {
     let posts;
+    let sortBy = (a,b) => {
+      if (a.score > b.score) {
+        return 1;
+      } else if (a.score < b.score) {
+        return -1;
+      } else {
+        return 0;
+      }
+    };
 
     if (this.props.posts) {
-      posts = this.props.posts.map((post, idx) =>
+      posts = this.props.posts.sort(sortBy).map((post, idx) =>
         <PostsListItem key={idx} post={post} />
       );
     } else {
