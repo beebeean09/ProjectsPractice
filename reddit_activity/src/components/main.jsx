@@ -5,16 +5,22 @@ class Main extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { username: "" , posts: "", comments: ""};
+    this.state = { username: "" , posts: "", comments: "", errors: ""};
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  fetchPosts() {
-
+  fetchPosts(username) {
+    fetch(`https://www.reddit.com/user/${username}/submitted.json`)
+    .then(res => res.json())
+    .then(json => json.data.children)
+    .then(children => console.log(children));
   }
 
-  fetchComments() {
-
+  fetchComments(username) {
+    return fetch(`https://www.reddit.com/user/${username}/submitted.json`)
+    .then(res => res.json())
+    .then(json => json.data.children)
+    .then(children => console.log(children));
   }
 
 
@@ -25,8 +31,10 @@ class Main extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
 
-    this.fetchPosts();
-    this.fetchComments();
+    let username = this.state.username;
+    console.log(username);
+    this.fetchPosts(username);
+    this.fetchComments(username);
     this.setState({username: ""});
   }
 
@@ -43,7 +51,7 @@ class Main extends React.Component {
                 placeholder='Username'>
               </input>
             </label>
-            <input stype="submit" value="Submit"/>
+            <input type="submit" value="Submit"/>
           </form>
         </div>
       </div>
