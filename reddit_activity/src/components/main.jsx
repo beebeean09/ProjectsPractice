@@ -18,8 +18,14 @@ class Main extends React.Component {
     .then(res => res.json())
     .then(json => json.data.children)
     .then(postList => {
-      let posts = postList.map(post =>
-        [post.data.title, post.data.score, post.data.url]);
+      let posts = [];
+      postList.forEach(post => {
+        let userPosts = {};
+        userPosts["title"] = post.data.title;
+        userPosts["score"] = post.data.score;
+        userPosts["link"] = post.data.link;
+        posts.push(userPosts);
+      });
         this.setState({posts: posts});
     })
     .catch(err => this.setState({errors: [err, "Username does not exist."]}));
@@ -31,11 +37,16 @@ class Main extends React.Component {
     .then(res => res.json())
     .then(json => json.data.children)
     .then(commentList => {
-      let comments = commentList.map(comment =>
-        [comment.data.body, comment.data.score, comment.data.link_url]);
+      let comments = [];
+      commentList.forEach(comment => {
+        let userComments = {};
+        userComments["body"] = comment.data.body;
+        userComments["score"] = comment.data.score;
+        userComments["link"] = comment.data.link_url;
+        comments.push(userComments);
+      });
       this.setState({comments: comments});
-    }
-    )
+    })
     .catch(err => this.setState({errors: [err, "Username does not exist."]}));
   }
 
@@ -52,6 +63,8 @@ class Main extends React.Component {
     this.fetchComments(username);
     this.setState({username: ""});
   }
+
+  
 
   renderErrors() {
     let errors;

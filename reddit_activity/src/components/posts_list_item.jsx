@@ -9,11 +9,11 @@ class PostsListItem extends React.Component {
     return(
       <div className="posts-list-item">
         <h3>Title:</h3>
-        <ul>{post[0]}</ul>
+        <ul>{post.title}</ul>
         <h3>Score:</h3>
-        <ul>{post[1]}</ul>
+        <ul>{post.score}</ul>
         <h3>Link:</h3>
-        <ul><a href={post[2]}>Click here for link!</a></ul>
+        <ul><a href={post.link}>Click here for link!</a></ul>
       </div>
     );
   }
