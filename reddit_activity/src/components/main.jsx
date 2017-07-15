@@ -62,9 +62,12 @@ class Main extends React.Component {
     this.fetchPosts(username);
     this.fetchComments(username);
     this.setState({username: ""});
+    this.clearErrors();
   }
 
-  
+  clearErrors() {
+    this.setState({errors: ""});
+  }
 
   renderErrors() {
     let errors;
