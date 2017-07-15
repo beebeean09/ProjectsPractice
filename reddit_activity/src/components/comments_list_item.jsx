@@ -9,11 +9,11 @@ class CommentsListItem extends React.Component {
     return(
       <div className="comments-list-item">
         <h3>Body:</h3>
-        <ul>{comment[0]}</ul>
+        <ul>{comment.body}</ul>
         <h3>Score:</h3>
-        <ul>{comment[1]}</ul>
+        <ul>{comment.score}</ul>
         <h3>Link:</h3>
-        <ul><a href={comment[2]}>Click here for link!</a></ul>
+        <ul><a href={comment.link}>Click here for link!</a></ul>
       </div>
     );
   }

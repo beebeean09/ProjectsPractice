@@ -23,7 +23,7 @@ class Main extends React.Component {
         let userPosts = {};
         userPosts["title"] = post.data.title;
         userPosts["score"] = post.data.score;
-        userPosts["link"] = post.data.link;
+        userPosts["link"] = post.data.url;
         posts.push(userPosts);
       });
         this.setState({posts: posts});
