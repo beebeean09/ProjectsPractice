@@ -1,5 +1,7 @@
 import React from 'react';
 import RedditForm from './form.jsx';
+import CommentsList from './comments_list.jsx';
+import PostsList from './posts_list.jsx';
 
 class Main extends React.Component {
   constructor(props) {
@@ -81,9 +83,9 @@ class Main extends React.Component {
         </div>
         <div>
           <h2>Posts</h2>
-          <PostsContainer posts={posts}/>
+          <PostsList posts={posts}/>
           <h2>Comments</h2>
-          <CommentContainer comments={comments}/>
+          <CommentsList comments={comments}/>
         </div>
       </div>
     );
