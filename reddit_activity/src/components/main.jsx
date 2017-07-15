@@ -10,6 +10,7 @@ class Main extends React.Component {
   }
 
   fetchPosts(username) {
+    // title, score, link
     fetch(`https://www.reddit.com/user/${username}/submitted.json`)
     .then(res => res.json())
     .then(json => json.data.children)
@@ -17,10 +18,21 @@ class Main extends React.Component {
   }
 
   fetchComments(username) {
-    return fetch(`https://www.reddit.com/user/${username}/submitted.json`)
+    // body, score, link
+    return fetch(`https://www.reddit.com/user/${username}/comments.json`)
     .then(res => res.json())
     .then(json => json.data.children)
-    .then(children => console.log(children));
+    .then(commentList => {
+      let comments = commentList.map(comment =>
+        [comment.data.body, comment.data.score, comment.data.link_url]);
+      // let comments = commentList[0].data;
+      this.setState({comments: comments});
+      // this.setState({
+      //   comments: 'hello'
+      // });
+      console.log(this.state.comments);
+    }
+    );
   }
 
 
@@ -32,13 +44,20 @@ class Main extends React.Component {
     e.preventDefault();
 
     let username = this.state.username;
-    console.log(username);
-    this.fetchPosts(username);
+    // this.fetchPosts(username);
     this.fetchComments(username);
     this.setState({username: ""});
   }
 
   render() {
+    let comments;
+    debugger;
+    if (this.state.comments) {
+      comments = this.state.comments.map((comment, idx) =>
+        <ul key={idx}>{comment.body}</ul>);
+    }
+
+
     return (
       <div className="main-container">
         <RedditForm />
@@ -53,6 +72,10 @@ class Main extends React.Component {
             </label>
             <input type="submit" value="Submit"/>
           </form>
+        </div>
+        <div>
+          <h2>Comments</h2>
+          {comments}
         </div>
       </div>
     );
