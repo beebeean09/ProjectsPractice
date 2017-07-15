@@ -99,7 +99,7 @@ class Main extends React.Component {
           </form>
           {this.renderErrors()}
         </div>
-        <div>
+        <div className="info-container">
           <h2>Posts</h2>
           <PostsList posts={posts}/>
           <h2>Comments</h2>

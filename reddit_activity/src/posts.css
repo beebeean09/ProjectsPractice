@@ -1,7 +1,8 @@
 .posts-list {
-  border: 1px solid black;
+  /*border: 1px solid black;
+  border-radius: 4px;*/
   font-size: 15px;
-  margin: 30px;
+  /*margin: 30px;*/
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,7 +16,7 @@
 
 .posts-list-item, ul > a {
   /*display: flex;*/
-  width: 250px;
+  width: 700px;
   height: auto;
   margin: 15px;
   padding: 5px;
@@ -23,6 +24,8 @@
 
 .posts-list-item {
   border: 1px solid blue;
+  border-radius: 4px;
+  background: rgba(0, 150, 136, 0.15);
 }
 
 .posts-list-item > ul, .posts-list-item > h3 {

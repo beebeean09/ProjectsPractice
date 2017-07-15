@@ -1,7 +1,8 @@
 .comments-list {
-  border: 1px solid black;
+  /*border: 1px solid black;
+  border-radius: 4px;*/
   font-size: 15px;
-  margin: 30px;
+  /*margin: 30px;*/
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,13 +16,15 @@
 
 .comments-list-item, ul > a {
   /*display: flex;*/
-  width: 250px;
+  width: 700px;
   height: auto;
   margin: 15px;
   padding: 5px;
 }
 .comments-list-item {
   border: 1px solid blue;
+  border-radius: 4px;
+  background: rgba(0, 150, 136, 0.15);
 }
 
 .comments-list-item > ul, .comments-list-item > h3 {
