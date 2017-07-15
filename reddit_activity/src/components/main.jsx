@@ -14,7 +14,12 @@ class Main extends React.Component {
     fetch(`https://www.reddit.com/user/${username}/submitted.json`)
     .then(res => res.json())
     .then(json => json.data.children)
-    .then(children => console.log(children));
+    .then(postList => {
+      let posts = postList.map(post =>
+        [post.data.title, post.data.score, post.data.link]);
+        this.setState({posts: posts});
+    })
+    .catch(err => this.setState({errors: err}));
   }
 
   fetchComments(username) {
@@ -25,14 +30,10 @@ class Main extends React.Component {
     .then(commentList => {
       let comments = commentList.map(comment =>
         [comment.data.body, comment.data.score, comment.data.link_url]);
-      // let comments = commentList[0].data;
       this.setState({comments: comments});
-      // this.setState({
-      //   comments: 'hello'
-      // });
-      console.log(this.state.comments);
     }
-    );
+    )
+    .catch(err => this.setState({errors: err}));
   }
 
 
@@ -44,23 +45,27 @@ class Main extends React.Component {
     e.preventDefault();
 
     let username = this.state.username;
-    // this.fetchPosts(username);
+    this.fetchPosts(username);
     this.fetchComments(username);
     this.setState({username: ""});
   }
 
-  render() {
-    let comments;
-    debugger;
-    if (this.state.comments) {
-      comments = this.state.comments.map((comment, idx) =>
-        <ul key={idx}>{comment.body}</ul>);
+  renderErrors() {
+    let errors;
+    if (this.state.errors) {
+      errors = this.state.errors.map(err =>
+        <ul>Error Message: {err}</ul>
+      );
     }
+    return errors;
+  }
 
+  render() {
+    let posts = this.state.posts;
+    let comments = this.state.comments;
 
     return (
       <div className="main-container">
-        <RedditForm />
         <div className="form">
           <form onSubmit={this.handleSubmit}>
             <label>Reddit Username:
@@ -72,10 +77,13 @@ class Main extends React.Component {
             </label>
             <input type="submit" value="Submit"/>
           </form>
+          {this.renderErrors()}
         </div>
         <div>
+          <h2>Posts</h2>
+          <PostsContainer posts={posts}/>
           <h2>Comments</h2>
-          {comments}
+          <CommentContainer comments={comments}/>
         </div>
       </div>
     );
