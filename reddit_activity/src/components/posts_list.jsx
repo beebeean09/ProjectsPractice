@@ -1,6 +1,6 @@
 import React from 'react';
 import PostsListItem from './posts_list_item.jsx';
-import '../posts.css';
+import '../styles/posts.css';
 
 class PostsList extends React.Component {
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import CommentsListItem from './comments_list_item.jsx';
-import '../comments.css';
+import '../styles/comments.css';
 
 class CommentsList extends React.Component {
 

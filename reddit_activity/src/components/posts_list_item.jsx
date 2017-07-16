@@ -1,5 +1,5 @@
 import React from 'react';
-import '../posts.css';
+import '../styles/posts.css';
 
 class PostsListItem extends React.Component {
 

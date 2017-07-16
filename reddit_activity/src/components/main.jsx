@@ -1,7 +1,7 @@
 import React from 'react';
 import CommentsList from './comments_list.jsx';
 import PostsList from './posts_list.jsx';
-import '../main.css';
+import '../styles/main.css';
 
 class Main extends React.Component {
   constructor(props) {
