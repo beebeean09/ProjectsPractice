@@ -60,5 +60,13 @@
       <audio data-key="76" src="./sounds/Snare-1.wav"></audio>
       <audio data-key="186" src="./sounds/Snare-1.wav"></audio>
     </div>
+
+    <script>
+      window.addEventListener('keydown', (e) => {
+        const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+        console.log(audio);
+      })
+
+    </script>
   </body>
 </html>
