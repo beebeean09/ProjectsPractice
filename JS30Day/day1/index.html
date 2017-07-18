@@ -71,8 +71,16 @@
         key.classList.add('playing');
       });
 
+      function removeTransition(e) {
+        // selects only property with transform - the key that is pressed down
+        if (e.propertyName !== 'transform') return;
+        // remove the .playing styling class depending on transition time
+        this.classList.remove('playing');
+      }
+
+      // go through each key and remove .playing styling if key is pressed
       const keys = document.querySelectorAll('.key');
-      
+      keys.forEach(key => key.addEventListener('transitionend', removeTransition));
 
     </script>
   </body>
