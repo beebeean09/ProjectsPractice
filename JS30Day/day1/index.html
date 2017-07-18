@@ -62,14 +62,15 @@
     </div>
 
     <script>
-      window.addEventListener('keydown', (e) => {
+
+      function playSound(e) {
         const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
         const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
         if (!audio) return; // stops function from running
         audio.currentTime = 0; // starts audio at beginning for sound
         audio.play();
         key.classList.add('playing');
-      });
+      }
 
       function removeTransition(e) {
         // selects only property with transform - the key that is pressed down
@@ -81,6 +82,7 @@
       // go through each key and remove .playing styling if key is pressed
       const keys = document.querySelectorAll('.key');
       keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+      window.addEventListener('keydown', playSound);
 
     </script>
   </body>
