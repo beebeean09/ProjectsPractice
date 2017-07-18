@@ -64,10 +64,15 @@
     <script>
       window.addEventListener('keydown', (e) => {
         const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
-        if (!audio) return;
-        audio.currentTime = 0;
+        const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+        if (!audio) return; // stops function from running
+        audio.currentTime = 0; // starts audio at beginning for sound
         audio.play();
-      })
+        key.classList.add('playing');
+      });
+
+      const keys = document.querySelectorAll('.key');
+      
 
     </script>
   </body>

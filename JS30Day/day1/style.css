@@ -1,15 +1,44 @@
 body {
   background: lightblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+
 }
 
 .keys {
-
+  display: flex;
+  margin: 100px;
+  justify-content: center;
+  align-items: center;
 }
 
 .key {
-  
+  margin: 10px;
+  color: white;
+  border: 1px solid white;
+  border-radius: 4px;
+  padding: 5px;
+  width: 70px;
+  height: 50px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: all 0.07s;
+}
+
+.playing {
+  transform: scale(1.1);
+  border-color: pink;
+  box-shadow: 0 0 10px lightgrey;
 }
 
 .sound {
 
+}
+
+kbd {
+  font-size: 20px;
 }
