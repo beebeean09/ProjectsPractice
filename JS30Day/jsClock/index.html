@@ -6,7 +6,7 @@
   </head>
   <style>
     body {
-      background: lightpink;
+      background: #436784;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -20,12 +20,14 @@
       border: 20px solid white;
       border-radius: 50%;
       position: relative;
+      padding: 1em;
     }
 
     .clock-face {
       position: relative;
       width: 100%;
       height: 100%;
+      transform: translateY(-3px);
     }
 
     .hand {
@@ -35,6 +37,10 @@
       position: absolute;
       border: 1px solid black;
       top: 50%;
+      transform-origin: 100%; /* Rotates starting from the right end (default center)*/
+      transform: rotate(90deg);
+      transition: all 0.05s;
+      transition-timing-function: cubic-bezier(0.04, 2, 0.01, 1.96);
     }
   </style>
   <body>
