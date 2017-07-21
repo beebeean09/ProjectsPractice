@@ -11,7 +11,7 @@
   const people = [{first: 'Kristen', last: 'Lee', yob: 1994}, {first: 'Vivian', last: 'Lee', yob: 1991},
   {first: 'Sharon', last: 'Lee', yob: 1999}, {first: 'Susan', last: 'Leightner', yob: 1977},
   {first: 'Samantha', last: 'Lee', yob: 2001}];
-  const names = ['Vivian', 'Andrew', 'Sharon', 'Kristen', 'Andy', 'James', 'Vicky', 'David', 'Sherry', 'Barry'];
+  const names = ['Lee, Vivian', 'Williams, Eric', 'Mallark, Sharon', 'Paul, Kristen', 'Tan, Andy', 'Wong, James', 'Tran, Vicky', 'Lee, David', 'Park, Sherry', 'Liu, Barry'];
 
   // Array.prototype.filter()
   // filter people born in 1900s
@@ -37,11 +37,29 @@
 
   // create list of blvds in Paris that contain 'de' anywhere
   // use: https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
-  const category = document.querySelector('.mw-category');
-  // NODE-LIST; Array.from converts it into an array
-  const link = Array.from(category.querySelectorAll('a'));
-  const blvds = link.map(el => el.textContent)
-                    .filter((blvd) => blvd.includes('de'));
+  // const category = document.querySelector('.mw-category');
+  // // NODE-LIST; Array.from converts it into an array
+  // const link = Array.from(category.querySelectorAll('a'));
+  // const blvds = link.map(el => el.textContent)
+  //                   .filter((blvd) => blvd.includes('de'));
 
+  // sort people abc by last name
+  const alpha = names.sort((lastOne, nextOne) => {
+    let [aLast, aFirst] = lastOne.split(',');
+    let [bLast, bFirst] = nextOne.split(',');
+    return aLast > bLast ? 1 : -1;
+  });
+  console.log(alpha);
+
+  // sum instances of each of these
+  const data = ['car', 'bike', 'car', 'car', 'skateboard', 'car', 'bike', 'bike', 'skateboard', 'scooter'];
+  const sumData = data.reduce((obj, item) => {
+    if (!obj[item]) {
+      obj[item] = 0;
+    }
+    obj[item] += 1;
+    return obj;
+  }, {});
+  console.log(sumData);
   </script>
 </html>
