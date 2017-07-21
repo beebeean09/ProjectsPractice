@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Array Problems</title>
   </head>
   <body>
 
@@ -15,13 +15,13 @@
 
   // Array.prototype.filter()
   // filter people born in 1900s
-  const nineteen = people.filter(function(person) {
-    if (person.yob < 2000 && person.yob > 1900) {
-      return true;
-    } else {
-      return false;
-    }
-  });
-  
+  const nineteen = people.filter((person) => person.yob < 2000 && person.yob > 1900);
+  console.table(nineteen);
+
+  // Array.prototype.map()
+  // give array of people with first and last
+  const fullNames = people.map(person => person.first + " " + person.last);
+  console.log(fullNames);
+
   </script>
 </html>
