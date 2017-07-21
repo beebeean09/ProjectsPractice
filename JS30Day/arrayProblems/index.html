@@ -28,6 +28,12 @@
   const ordered = people.sort((a,b) => a.yob > b.yob ? 1: -1 );
   console.table(ordered);
 
+  // Array.prototype.reduce()
+  // sum up of ages for everyone
+  const sumAges = people.reduce((total, person) => {
+    return total + (2017 - person.yob);
+  }, 0);
+  console.log(sumAges);
 
   </script>
 </html>
