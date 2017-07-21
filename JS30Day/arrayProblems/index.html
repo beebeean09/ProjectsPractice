@@ -35,5 +35,13 @@
   }, 0);
   console.log(sumAges);
 
+  // create list of blvds in Paris that contain 'de' anywhere
+  // use: https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
+  const category = document.querySelector('.mw-category');
+  // NODE-LIST; Array.from converts it into an array
+  const link = Array.from(category.querySelectorAll('a'));
+  const blvds = link.map(el => el.textContent)
+                    .filter((blvd) => blvd.includes('de'));
+
   </script>
 </html>
