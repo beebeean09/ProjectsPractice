@@ -23,5 +23,11 @@
   const fullNames = people.map(person => person.first + " " + person.last);
   console.log(fullNames);
 
+  // Array.prototype.sort()
+  // sort people by birthyear, oldest to youngest
+  const ordered = people.sort((a,b) => a.yob > b.yob ? 1: -1 );
+  console.table(ordered);
+
+
   </script>
 </html>
