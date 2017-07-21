@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+  </body>
+  <script>
+  const people = [{first: 'Kristen', last: 'Lee', yob: 1994}, {first: 'Vivian', last: 'Lee', yob: 1991},
+  {first: 'Sharon', last: 'Lee', yob: 1999}, {first: 'Susan', last: 'Leightner', yob: 1977},
+  {first: 'Samantha', last: 'Lee', yob: 2001}];
+  const names = ['Vivian', 'Andrew', 'Sharon', 'Kristen', 'Andy', 'James', 'Vicky', 'David', 'Sherry', 'Barry'];
+
+  // Array.prototype.filter()
+  // filter people born in 1900s
+  const nineteen = people.filter(function(person) {
+    if (person.yob < 2000 && person.yob > 1900) {
+      return true;
+    } else {
+      return false;
+    }
+  });
+  
+  </script>
+</html>
