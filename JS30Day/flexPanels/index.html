@@ -5,6 +5,70 @@
     <title>Flex Panel</title>
   </head>
   <body>
+    <div class="panels">
 
+      <div class="panel panel1">
+        <p>HEY</p>
+        <p>LET'S</p>
+        <p>DANCE</p>
+      </div>
+      <div class="panel panel2">
+        <p>HEY</p>
+        <p>LET'S</p>
+        <p>DANCE</p>
+      </div>
+      <div class="panel panel3">
+        <p>HEY</p>
+        <p>LET'S</p>
+        <p>DANCE</p>
+      </div>
+      <div class="panel panel4">
+        <p>HEY</p>
+        <p>LET'S</p>
+        <p>DANCE</p>
+      </div>
+      <div class="panel panel5">
+        <p>HEY</p>
+        <p>LET'S</p>
+        <p>DANCE</p>
+      </div>
+
+    </div>
   </body>
+
+  <style>
+    body {
+      margin: 0;
+      background: pink;
+    }
+
+    html {
+      box-sizing: border-box;
+      font-family: arial;
+      font-size: 20px;
+    }
+
+    .panels {
+      display: flex;
+      flex: 1;
+      color: white;
+      overflow: hidden;
+      min-height: 100vh;
+    }
+
+    .panel {
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      align-items: center;
+      border: 1px solid blue;
+    }
+
+    .panel1 { background-image: url('lights.jpg')}
+    .panel2 { background-image: url('pug.jpg')}
+    .panel3 { background-image: url('snow.jpg')}
+    .panel4 { background-image: url('stars.jpg')}
+    .panel5 { background-image: url('waterfall.jpg')}
+
+  </style>
 </html>
