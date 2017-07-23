@@ -67,12 +67,17 @@
       background-size: cover;
       background-position: center;
       flex: 1;
+      font-size: 20px;
+      transition:
+        font-size 0.7s cubic-bezier(0.61, -0.19, 0.7, -0.11),
+        flex 0.7s cubic-bezier(0.61, -0.19, 0.7, -0.11),
+        background 0.2s;
     }
 
     .panel > * {
       margin: 0;
       width: 100%;
-      transition: transition 0.5s;
+      transition: transform 0.5s;
       border: 1px solid red;
       display: flex;
       justify-content: center;
@@ -85,8 +90,12 @@
       text-shadow: 0 0 4px rgba(0,0,0, 0.72), 0 0 14px rgba(0,0,0, 0.45);
     }
 
+    .panel *:first-child {
+      transform: translateY(-100%);
+    }
+
     .panel p:nth-child(2) {
-      font-size: 4em;
+      font-size: 3em;
     }
 
     .panel1 { background-image: url('lights.jpg')}
