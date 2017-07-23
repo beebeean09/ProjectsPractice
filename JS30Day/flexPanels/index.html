@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Flex Panel</title>
+    <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
   </head>
   <body>
     <div class="panels">
@@ -13,19 +14,19 @@
         <p>DANCE</p>
       </div>
       <div class="panel panel2">
-        <p>HEY</p>
-        <p>LET'S</p>
-        <p>DANCE</p>
+        <p>Hello</p>
+        <p>PANDA</p>
+        <p>bear</p>
       </div>
       <div class="panel panel3">
-        <p>HEY</p>
-        <p>LET'S</p>
-        <p>DANCE</p>
+        <p>Hi</p>
+        <p>POLAR</p>
+        <p>bear</p>
       </div>
       <div class="panel panel4">
-        <p>HEY</p>
-        <p>LET'S</p>
-        <p>DANCE</p>
+        <p>Anyong</p>
+        <p>BLACK</p>
+        <p>bear</p>
       </div>
       <div class="panel panel5">
         <p>HEY</p>
@@ -40,6 +41,7 @@
     body {
       margin: 0;
       background: pink;
+      font-family: 'Kaushan Script', cursive;
     }
 
     html {
@@ -65,6 +67,26 @@
       background-size: cover;
       background-position: center;
       flex: 1;
+    }
+
+    .panel > * {
+      margin: 0;
+      width: 100%;
+      transition: transition 0.5s;
+      border: 1px solid red;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex: 1 0 auto;
+    }
+
+    .panel p {
+      font-size: 2em;
+      text-shadow: 0 0 4px rgba(0,0,0, 0.72), 0 0 14px rgba(0,0,0, 0.45);
+    }
+
+    .panel p:nth-child(2) {
+      font-size: 4em;
     }
 
     .panel1 { background-image: url('lights.jpg')}
