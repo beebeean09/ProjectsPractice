@@ -93,9 +93,19 @@
     .panel *:first-child {
       transform: translateY(-100%);
     }
+    .panel.open-active > *:first-child {
+      transform: translateY(0);
+    }
+    .panel *:last-child {
+      transform: translateY(100%);
+    }
+    .panel.open-active > *:last-child {
+      transform: translateY(0);
+    }
 
     .panel p:nth-child(2) {
       font-size: 3em;
+      /*padding: 1em;*/
     }
 
     .panel1 { background-image: url('lights.jpg')}
@@ -104,7 +114,15 @@
     .panel4 { background-image: url('stars.jpg')}
     .panel5 { background-image: url('waterfall.jpg')}
 
-
-
   </style>
+  <script>
+    const firstPan = document.querySelector('.panel *:first-child');
+    const lastPan = document.querySelector('.panel *:last-child');
+    console.log(firstPan);
+    console.log(lastPan);
+    firstPan.classList.add('open-active');
+    lastPan.classList.add('open-active');
+
+
+  </script>
 </html>
