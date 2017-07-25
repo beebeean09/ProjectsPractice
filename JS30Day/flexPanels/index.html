@@ -116,13 +116,13 @@
 
   </style>
   <script>
-    const firstPan = document.querySelector('.panel *:first-child');
-    const lastPan = document.querySelector('.panel *:last-child');
-    console.log(firstPan);
-    console.log(lastPan);
-    firstPan.classList.add('open-active');
-    lastPan.classList.add('open-active');
+    const panels = document.querySelectorAll('.panel');
 
+    function toggleOpen() {
+      this.classList.add('open-active');
+    }
+
+    panels.forEach(panel => panel.addEventListener('click', toggleOpen));
 
   </script>
 </html>
