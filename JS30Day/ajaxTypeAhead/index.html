@@ -7,8 +7,12 @@
   <style>
     body {
       background: lightyellow;
-      color: lightblue;
+      color: #3e7182;
       font-family: sans-serif;
+    }
+
+    h1 {
+      font-size: 3em;
     }
 
     .flex-wrapper {
@@ -23,11 +27,16 @@
     }
 
     .search-input {
-      padding: 1em 3em;
+      padding: 0.5em 1.5em;
       border: 2px solid grey;
       border-radius: 3px;
       text-align: center;
-      font-size: 1em;
+      font-size: 2em;
+    }
+
+    .suggestions, ul {
+      text-align: center;
+      border: 1px solid grey;
     }
 
     .result-item {
@@ -35,17 +44,13 @@
       flex-direction: row;
       justify-content: center;
       align-items: center;
-      border: 1px solid grey;
-    }
-
-    .suggestions {
-      text-align: center;
-
     }
 
     ul {
-      padding: 1em 1em;
+      padding: 1em 0;
       margin: 0;
+      width: 26em;
+      background: rgba(199, 142, 142, 0.31);
     }
 
     li {
@@ -58,6 +63,7 @@
     .city {
       font-weight: bold;
       color: black;
+      padding: 0 12px;
     }
 
     .population {
@@ -66,14 +72,14 @@
     }
 
     .hl {
-      background: lightgrey;
+      background: #ff867d;
       text-transform: capitalize;
     }
   </style>
   <body>
 
     <div class="flex-wrapper main">
-      <h1>Search Your Population!</h1>
+      <h1>Search For Human Population Near You!</h1>
       <form class="flex-wrapper" onclick="">
         <input
         type="text"
@@ -81,8 +87,7 @@
         placeholder="City or State"
         />
         <div class="suggestions">
-          <ul>Filter City and State</ul>
-
+          <ul >Filter City and State</ul>
         </div>
       </form>
     </div>
