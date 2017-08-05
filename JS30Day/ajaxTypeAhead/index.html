@@ -14,6 +14,18 @@
 
     fetch(endpoint)
       .then(res => res.json())
-      .then(data => cities = data);
+      .then(data => cities.push(...data));
+
+    console.log(cities);
+
+    function findMatches(wordToMatch, cities) {
+      return cities.filter(place => {
+
+        // g = global, i = insensitive
+        const regex = new RegExp(wordToMatch, 'gi');
+        console.log(regex);
+        return place.city.match(regex) || place.state.match(regex);
+      });
+    }
   </script>
 </html>
