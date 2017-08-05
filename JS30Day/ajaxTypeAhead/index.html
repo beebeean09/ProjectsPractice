@@ -11,37 +11,74 @@
       font-family: sans-serif;
     }
 
-    .form-wrapper {
+    .flex-wrapper {
       display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
+    }
+
+    .main {
       margin: 5em;
     }
 
     .search-input {
-      padding: 1em;
+      padding: 1em 3em;
       border: 2px solid grey;
       border-radius: 3px;
       text-align: center;
       font-size: 1em;
     }
 
+    .result-item {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid grey;
+    }
+
+    .suggestions {
+      text-align: center;
+
+    }
+
+    ul {
+      padding: 1em 1em;
+      margin: 0;
+    }
+
+    li {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      width: 50%;
+    }
+
+    .city {
+      font-weight: bold;
+      color: black;
+    }
+
+    .population {
+      font-style: italic;
+      font-size: 15px;
+    }
   </style>
   <body>
 
-    <div class="form-wrapper">
+    <div class="flex-wrapper main">
       <h1>Search Your Population!</h1>
-      <form onclick="">
+      <form class="flex-wrapper" onclick="">
         <input
         type="text"
         class="search-input"
         placeholder="City or State"
         />
-        <ul class="suggestions">
+        <div class="suggestions">
+          <ul>Filter City and State</ul>
 
-
-        </ul>
+        </div>
       </form>
     </div>
   </body>
@@ -54,26 +91,34 @@
       .then(res => res.json())
       .then(data => cities.push(...data));
 
-    console.log(cities);
-
     function findMatches(wordToMatch, cities) {
       return cities.filter(place => {
 
         // g = global, i = insensitive
         const regex = new RegExp(wordToMatch, 'gi');
-        console.log(regex);
         return place.city.match(regex) || place.state.match(regex);
       });
     }
 
     function displayMatches() {
-      console.log(this.value);
+      const matchesArray = findMatches(this.value, cities);
+      const html = matchesArray.map(place => {
+        return `
+          <ul class="result-item">
+            <li class="city">${place.city}, ${place.state}</li>
+            <li class="population">${place.population}</li>
+          </ul>
+        `;
+      }).join('');
+      suggestions.innerHTML = html;
     }
 
     const searchInput = document.querySelector('.search-input');
     const suggestions = document.querySelector('.suggestions');
 
-    searchInput.addEventListener('change', findMatches);
+    // have to click outside of input for cb to run, change happens when you go out of input
+    searchInput.addEventListener('change', displayMatches);
+    searchInput.addEventListener('keyup', displayMatches);
 
   </script>
 </html>
