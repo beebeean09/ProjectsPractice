@@ -5,3 +5,19 @@ body {
   margin: 3em;
   background: lightyellow;
 }
+
+button {
+  background: #6d94a7;
+  border: 2px solid #b5b5b5;
+  color: white;
+  cursor: pointer;
+}
+
+.player-controls {
+  display: flex;
+  justify-content: space-between;
+}
+
+.play-button {
+  width: 90px;
+}
