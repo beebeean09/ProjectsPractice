@@ -13,6 +13,10 @@ button {
   cursor: pointer;
 }
 
+.player-video {
+  width: 700px;
+}
+
 .player-controls {
   display: flex;
   justify-content: space-between;
