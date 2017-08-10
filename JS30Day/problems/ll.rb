@@ -40,4 +40,13 @@ class LinkedList
     end
   end
 
+  def return_list
+    elements = []
+    current = @head
+    while current.next != nil
+      elements << current
+      current = current.next
+    end
+    elements << current
+  end
 end
