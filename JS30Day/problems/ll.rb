@@ -1,4 +1,4 @@
-class Node
+class Link
   attr_accessor :val, :next
 
   def initialize(val, next_node)
@@ -8,9 +8,10 @@ class Node
 end
 
 class LinkedList
+  attr_accessor :head
 
   def initialize(val)
-    @head = Node.new(val, nil)
+    @head = Link.new(val, nil)
   end
 
   def add(val)
@@ -18,17 +19,13 @@ class LinkedList
     while current.next != nil
       current = current.next
     end
-    current.next = Node.new(val, nil)
+    current.next = Link.new(val, nil)
   end
 
   def delete(val)
-    p 'delete'
     current = @head
-    p current
-    current.next = @head
-    p 'next'
-    p current.next
-    if current.val = val
+
+    if current.val == val
       @head = current.next
     else
       while (current.next != nil) && (current.next.val != val)
@@ -38,6 +35,22 @@ class LinkedList
         current.next = current.next.next
       end
     end
+
+    # current = @head
+    # temp = nil
+    # previous = nil
+    # while current != nil
+    #   if current.val == val
+    #     temp = current.next
+    #     previous.next = temp
+    #     return true
+    #   else
+    #     previous = current
+    #     current = current.next
+    #   end
+    # end
+    #
+    # return false
   end
 
   def return_list
@@ -50,3 +63,12 @@ class LinkedList
     elements << current
   end
 end
+
+linked_list = LinkedList.new(1)
+linked_list.add(2)
+linked_list.add(3)
+linked_list.add(4)
+p linked_list
+linked_list.delete(4)
+p linked_list
+# p linked_list.return_list
