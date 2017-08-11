@@ -1,0 +1,19 @@
+body {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 4em;
+  background: lightblue;
+  font-family: sans-serif;
+  color: white;
+}
+
+.timer, .display, h1  {
+  display: flex;
+  justify-content: center;
+}
+
+.custom-form {
+  text-align: center;
+  margin: 1em;
+}
