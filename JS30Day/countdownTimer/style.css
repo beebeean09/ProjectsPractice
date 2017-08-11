@@ -13,7 +13,11 @@ body {
   justify-content: center;
 }
 
-.custom-form {
+#custom {
   text-align: center;
   margin: 1em;
+}
+
+.display {
+  font-size: 5em;
 }
