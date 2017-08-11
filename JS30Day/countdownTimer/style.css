@@ -20,4 +20,15 @@ body {
 
 .display {
   font-size: 5em;
+  flex-direction: column;
+  margin: 30px 0;
+}
+
+.display-time-left {
+  margin: 0;
+}
+
+.display-end-time {
+  margin: 1em 0;
+  text-align: center;
 }
