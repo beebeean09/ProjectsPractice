@@ -33,11 +33,24 @@ function displayTimeLeft(seconds) {
 }
 
 function displayEndTime(timestamp) {
+  let adjustedHour;
+  let ampm;
+
   const end = new Date(timestamp);
   const hour = end.getHours();
   const minutes = end.getMinutes();
-  const adjustedHour = hour > 12 ? 24 - hour : hour;
-  endTime.textContent = `Be back at ${adjustedHour}:${minutes < 10 ? '0': ''}${minutes}.`;
+  if (hour === 0) {
+    adjustedHour = 12;
+    ampm = 'AM';
+  } else if (hour > 12) {
+    adjustedHour = hour - 12;
+    ampm = 'PM';
+  } else {
+    adjustedHour = hour;
+    ampm = 'AM';
+  }
+  hour > 12 ? hour - 12 : hour;
+  endTime.textContent = `Be back at ${adjustedHour}:${minutes < 10 ? '0': ''}${minutes}${ampm}.`;
 }
 
 function startTimer() {
@@ -47,3 +60,9 @@ function startTimer() {
 }
 
 buttons.forEach(button => button.addEventListener('click', startTimer));
+document.customForm.addEventListener('submit', function(e) {
+  e.preventDefault();
+  const mins = this.minutes.value;
+  const secs = mins * 60;
+  timer(secs);
+});
