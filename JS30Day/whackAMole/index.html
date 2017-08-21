@@ -35,7 +35,7 @@
     const moles = document.querySelectorAll('.mole');
     let lastHole;
 
-    function randTime(min, max) {
+    function randomTime(min, max) {
       return Math.round(Math.random() * (max - min) + min);
     }
 
@@ -49,6 +49,14 @@
 
       lastHole = hole;
       return hole;
+    }
+
+    // make moles pop up
+    function peep() {
+      const time = randomTime(1000,2000);
+      const hole = randomHole(holes);
+      console.log(time, hole);
+      hole.addClassList.add('up');
     }
 
   </script>
