@@ -30,7 +30,26 @@
     </div>
   </body>
   <script>
+    const scoreBoard = document.querySelector('.score');
+    const holes = document.querySelectorAll('.hole');
+    const moles = document.querySelectorAll('.mole');
+    let lastHole;
 
+    function randTime(min, max) {
+      return Math.round(Math.random() * (max - min) + min);
+    }
+
+    // grab all holes and choose random hole
+    function randomHole(holes) {
+      const idx = Math.floor(Math.random() * holes.length);
+      const hole = holes[idx];
+      if (lastHole === hole) {
+        return randomHole(holes);
+      }
+
+      lastHole = hole;
+      return hole;
+    }
 
   </script>
 </html>
